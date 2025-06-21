@@ -1,6 +1,6 @@
 /*
   Omnifood SCSS Main File
-  Author: Vinh
+  Author: Kin Loki
 
   This file imports all the partials in the correct order.
 */
@@ -496,6 +496,33 @@ strong {
   font-weight: 600;
 }
 .delivered-meals-text span {
+  color: #cf711f;
+  font-weight: 700;
+}
+
+.delivered-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
+}
+.delivered-img img {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+  margin-right: -1.6rem;
+  border: 3px solid #fdf2e9;
+}
+.delivered-img img:last-child {
+  margin: 0;
+}
+
+.delivered-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.delivered-text span {
   color: #cf711f;
   font-weight: 700;
 }
