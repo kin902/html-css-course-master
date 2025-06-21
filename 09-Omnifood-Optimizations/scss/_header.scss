@@ -1,0 +1,154 @@
+// HEADER & NAVIGATION
+
+@use "variables" as *;
+@use "mixins" as *;
+@use "sass:map" as map;
+
+// HEADER
+.header {
+  @include flex(row, space-between, center);
+  background-color: $primary-color-tint-1;
+  height: 9.6rem;
+  padding: 0 $spacing-8;
+  position: relative;
+
+  @include respond(xl) {
+    padding: 0 $spacing-7;
+  }
+}
+
+.logo {
+  height: 2.2rem;
+}
+
+// NAVIGATION
+.main-nav {
+  &-list {
+    list-style: none;
+    @include flex(row, flex-start, center, $spacing-8);
+
+    @include respond(xl) {
+      gap: $spacing-7;
+    }
+
+    @include respond(lg) {
+      flex-direction: column;
+      gap: $spacing-8;
+    }
+  }
+
+  &-link {
+    &:link, &:visited {
+      display: inline-block;
+      text-decoration: none;
+      color: $grey-5;
+      font-weight: $font-weight-medium;
+      font-size: map.get($font-sizes, "lg");
+      @include transition;
+
+      @include respond(lg) {
+        font-size: map.get($font-sizes, "3xl");
+      }
+    }
+
+    &:hover, &:active {
+      color: $primary-color-shade-1;
+    }
+
+    &.nav-cta {
+      &:link, &:visited {
+        padding: $spacing-4 $spacing-6;
+        border-radius: $border-radius-sm;
+        color: #fff;
+        background-color: $primary-color;
+      }
+
+      &:hover, &:active {
+        background-color: $primary-color-shade-1;
+      }
+    }
+  }
+
+  @include respond(lg) {
+    background-color: rgba(255, 255, 255, 0.6);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+
+    @include flex(row, center, center);
+    @include transition(all, 0.5s, ease-in);
+
+    // Hide navigation
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+// MOBILE NAVIGATION
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+
+  @include respond(lg) {
+    display: block;
+    z-index: 9999;
+  }
+}
+
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: $grey-5;
+
+  &[name="close-outline"] {
+    display: none;
+  }
+}
+
+// MOBILE NAV OPEN STATE
+.nav-open {
+  .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0%);
+  }
+
+  .icon-mobile-nav {
+    &[name="close-outline"] {
+      display: block;
+    }
+
+    &[name="menu-outline"] {
+      display: none;
+    }
+  }
+}
+
+// STICKY NAVIGATION
+.sticky {
+  .header {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 8rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 999;
+    box-shadow: 0 1.2px 3.2px rgba(0, 0, 0, 0.3);
+  }
+
+  .section-hero {
+    margin-top: 9.6rem;
+  }
+}

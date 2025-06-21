@@ -1,0 +1,83 @@
+// VARIABLES
+
+// COLORS
+$primary-color: #e67e22;
+$primary-color-tint-1: #fdf2e9;
+$primary-color-tint-2: #fae5d3;
+$primary-color-shade-1: #cf711f;
+$primary-color-shade-2: #45260a;
+
+// GREYS
+$grey-1: #888;
+$grey-2: #767676; // lightest grey allow on #fff
+$grey-3: #6f6f6f; // lightest grey allow on #fdf2e9
+$grey-4: #555;
+$grey-5: #333;
+
+// FONT SIZES
+$font-sizes: (
+  "xs": 1rem,
+  "sm": 1.2rem,
+  "md": 1.4rem,
+  "base": 1.6rem,
+  "lg": 1.8rem,
+  "xl": 2rem,
+  "2xl": 2.4rem,
+  "3xl": 3rem,
+  "4xl": 3.6rem,
+  "5xl": 4.4rem,
+  "6xl": 5.2rem,
+  "7xl": 6.2rem,
+  "8xl": 7.4rem,
+  "9xl": 8.6rem,
+  "10xl": 9.8rem
+);
+
+// FONT WEIGHTS
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// LINE HEIGHTS
+$line-height-1: 1;
+$line-height-sm: 1.05;
+$line-height-md: 1.2;
+$line-height-lg: 1.6;
+$line-height-xl: 1.8;
+
+// LETTER SPACING
+$letter-spacing-tight: -0.5px;
+$letter-spacing-wide: 0.75px;
+
+// SPACING
+$spacing-1: 0.2rem;
+$spacing-2: 0.4rem;
+$spacing-3: 0.8rem;
+$spacing-4: 1.2rem;
+$spacing-5: 1.6rem;
+$spacing-6: 2.4rem;
+$spacing-7: 3.2rem;
+$spacing-8: 4.8rem;
+$spacing-9: 6.4rem;
+$spacing-10: 8rem;
+$spacing-11: 9.6rem;
+$spacing-12: 12.8rem;
+
+// SHADOWS
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+$shadow-xl: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.75);
+
+// BORDER RADIUS
+$border-radius-sm: 9px;
+$border-radius-md: 11px;
+$border-radius-full: 100px;
+
+// BREAKPOINTS
+$breakpoint-sm: 34em;    // 544px
+$breakpoint-md: 44em;    // 704px
+$breakpoint-lg: 59em;    // 944px
+$breakpoint-xl: 75em;    // 1200px
+$breakpoint-2xl: 84em;   // 1344px

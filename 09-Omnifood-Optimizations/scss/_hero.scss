@@ -1,0 +1,96 @@
+// HERO SECTION
+
+@use "variables" as *;
+@use "mixins" as *;
+@use "sass:map" as map;
+
+.section-hero {
+  background-color: $primary-color-tint-1;
+  padding: $spacing-8 0 $spacing-11 0;
+
+  @include respond(sm) {
+    padding: $spacing-6 0 $spacing-9 0;
+  }
+}
+
+.hero {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 $spacing-7;
+  @include grid(1fr 1fr, auto, $spacing-11);
+  align-items: center;
+
+  @include respond(2xl) {
+    max-width: 120rem;
+  }
+
+  @include respond(lg) {
+    grid-template-columns: 1fr;
+    padding: 0 $spacing-10;
+    gap: $spacing-9;
+  }
+
+  @include respond(sm) {
+    padding: 0 $spacing-7;
+  }
+
+  &-description {
+    font-size: map.get($font-sizes, "xl");
+    line-height: $line-height-lg;
+    margin-bottom: $spacing-8;
+  }
+
+  &-img {
+    width: 100%;
+
+    @include respond(lg) {
+      width: 60%;
+    }
+
+    @include respond(sm) {
+      width: 80%;
+    }
+  }
+
+  &-text-box, &-img-box {
+    @include respond(lg) {
+      text-align: center;
+    }
+  }
+}
+
+.delivered-meals {
+  @include flex(row, flex-start, center, $spacing-5);
+  margin-top: $spacing-10;
+
+  @include respond(lg) {
+    justify-content: center;
+    margin-top: $spacing-7;
+  }
+
+  &-img {
+    @include flex;
+
+    img {
+      height: 4.8rem;
+      width: 4.8rem;
+      border-radius: 50%;
+      margin-right: -1.6rem;
+      border: 3px solid $primary-color-tint-1;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  &-text {
+    font-size: map.get($font-sizes, "lg");
+    font-weight: $font-weight-semibold;
+
+    span {
+      color: $primary-color-shade-1;
+      font-weight: $font-weight-bold;
+    }
+  }
+}

@@ -1,0 +1,572 @@
+// WEBSITE SECTIONS
+
+@use "variables" as *;
+@use "mixins" as *;
+@use "sass:map" as map;
+
+// FEATURED IN SECTION
+.section-featured {
+  padding: $spacing-8 0 $spacing-7 0;
+}
+
+.heading-featured-in {
+  font-size: map.get($font-sizes, "md");
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  margin-bottom: $spacing-6;
+  color: $grey-1;
+}
+
+.logos {
+  @include flex(row, space-around, center);
+
+  img {
+    height: 3.2rem;
+    filter: brightness(0);
+    opacity: 50%;
+
+    @include respond(lg) {
+      height: 2.4rem;
+    }
+
+    @include respond(sm) {
+      height: 1.2rem;
+    }
+  }
+}
+
+// HOW IT WORKS SECTION
+.section-how {
+  padding: $spacing-11 0;
+}
+
+.step-number {
+  font-size: map.get($font-sizes, "9xl");
+  font-weight: $font-weight-semibold;
+  color: #ddd;
+  margin-bottom: $spacing-4;
+
+  @include respond(lg) {
+    font-size: map.get($font-sizes, "8xl");
+  }
+}
+
+.step-description {
+  font-size: map.get($font-sizes, "lg");
+  line-height: $line-height-xl;
+}
+
+.step-img-box {
+  @include flex(row, center, center);
+  position: relative;
+
+  @include respond(sm) {
+    transform: translateY($spacing-6);
+
+    &:nth-child(2) {
+      grid-row: 1;
+    }
+
+    &:nth-child(6) {
+      grid-row: 5;
+    }
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &::before {
+    width: 60%;
+    padding-bottom: 60%;
+    background-color: $primary-color-tint-1;
+    z-index: -1;
+  }
+
+  &::after {
+    width: 45%;
+    padding-bottom: 45%;
+    background-color: $primary-color-tint-2;
+    z-index: -1;
+  }
+}
+
+.step-img {
+  width: 35%;
+}
+
+// MEALS SECTION
+.section-meals {
+  padding: $spacing-11 0;
+}
+
+.meal {
+  @include box-shadow;
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  @include transition(all, 0.4s);
+
+  &:hover {
+    box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+    transform: translateY(-1.2rem);
+  }
+
+  &-content {
+    padding: $spacing-7 $spacing-8 $spacing-8 $spacing-8;
+
+    @include respond(lg) {
+      padding: $spacing-6 $spacing-7 $spacing-7 $spacing-7;
+    }
+  }
+
+  &-tags {
+    margin-bottom: $spacing-4;
+    @include flex(row, flex-start, center, $spacing-2);
+  }
+
+  &-title {
+    font-size: map.get($font-sizes, "2xl");
+    color: $grey-5;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-7;
+  }
+
+  &-attributes {
+    list-style: none;
+    @include flex(column, flex-start, flex-start, $spacing-5);
+  }
+
+  &-attribute {
+    font-size: map.get($font-sizes, "lg");
+    @include flex(row, flex-start, center, $spacing-5);
+  }
+
+  &-icon {
+    height: 2.4rem;
+    width: 2.4rem;
+    color: $primary-color;
+  }
+
+  &-img {
+    width: 100%;
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: $spacing-1 $spacing-3;
+  font-size: map.get($font-sizes, "sm");
+  text-transform: uppercase;
+  color: $grey-5;
+  border-radius: $border-radius-full;
+  font-weight: $font-weight-semibold;
+
+  &--vegetarian {
+    background-color: #51cf66;
+  }
+
+  &--vegan {
+    background-color: #94d82d;
+  }
+
+  &--paleo {
+    background-color: #ffd43b;
+  }
+}
+
+.all-recipes {
+  text-align: center;
+  font-size: map.get($font-sizes, "lg");
+}
+
+// TESTIMONIALS SECTION
+.section-testimonials {
+  background-color: $primary-color-tint-1;
+  @include grid(55fr 45fr, auto);
+  align-items: center;
+
+  @include respond(lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonials-container {
+  padding: $spacing-11;
+
+  @include respond(xl) {
+    padding: $spacing-11 $spacing-7;
+  }
+}
+
+.testimonials {
+  @include grid(1fr 1fr, auto, $spacing-8 $spacing-10);
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonial {
+  &-img {
+    width: 6.4rem;
+    border-radius: 50%;
+    margin-bottom: $spacing-4;
+  }
+
+  &-text {
+    font-size: map.get($font-sizes, "lg");
+    line-height: $line-height-xl;
+    margin-bottom: $spacing-5;
+  }
+
+  &-name {
+    font-size: map.get($font-sizes, "base");
+    color: $grey-3;
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-5;
+  padding: $spacing-5;
+
+  @include respond(2xl) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond(lg) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include respond(sm) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-4;
+  }
+
+  &-item {
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+
+      &:hover {
+        transform: scale(1.1);
+        @include transition(all, 0.4s);
+      }
+    }
+  }
+}
+
+// PRICING SECTION
+.section-pricing {
+  padding: $spacing-11 0;
+}
+
+.pricing-plan {
+  border-radius: $border-radius-md;
+  padding: $spacing-8;
+  width: 75%;
+
+  @include respond(md) {
+    width: 100%;
+  }
+
+  &--starter {
+    justify-self: end;
+    border: 2px solid $primary-color-tint-1;
+    padding: 4.6rem;
+  }
+
+  &--complete {
+    background-color: $primary-color-tint-1;
+    padding: $spacing-8;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: "Best value";
+      position: absolute;
+      top: 8%;
+      right: -16%;
+      text-transform: uppercase;
+      font-size: map.get($font-sizes, "md");
+      font-weight: $font-weight-bold;
+      color: $grey-5;
+      background-color: #ffd43b;
+      padding: $spacing-3 $spacing-10;
+      transform: rotate(45deg);
+
+      @include respond(md) {
+        top: 6%;
+        right: -20%;
+      }
+    }
+  }
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: $spacing-8;
+}
+
+.plan-name {
+  color: $primary-color-shade-1;
+  font-weight: $font-weight-semibold;
+  font-size: map.get($font-sizes, "xl");
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  margin-bottom: $spacing-7;
+}
+
+.plan-price {
+  font-size: map.get($font-sizes, "7xl");
+  font-weight: $font-weight-semibold;
+  color: $grey-5;
+  margin-bottom: $spacing-5;
+
+  span {
+    font-size: map.get($font-sizes, "3xl");
+    font-weight: $font-weight-medium;
+    margin-right: $spacing-3;
+  }
+}
+
+.plan-text {
+  font-size: map.get($font-sizes, "base");
+  line-height: $line-height-lg;
+  color: $grey-3;
+}
+
+.plan-sign-up {
+  text-align: center;
+  margin-top: $spacing-8;
+}
+
+.plan-details {
+  font-size: map.get($font-sizes, "base");
+  line-height: $line-height-lg;
+  text-align: center;
+}
+
+.feature {
+  &-icon {
+    color: $primary-color;
+    height: 4.2rem;
+    width: 4.2rem;
+    margin-bottom: $spacing-7;
+    background-color: $primary-color-tint-1;
+    padding: $spacing-5;
+    border-radius: 50%;
+  }
+
+  &-title {
+    font-size: map.get($font-sizes, "2xl");
+    color: $grey-5;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-5;
+  }
+
+  &-text {
+    font-size: map.get($font-sizes, "lg");
+    line-height: $line-height-xl;
+  }
+}
+
+// CTA SECTION
+.section-cta {
+  padding: $spacing-8 0 $spacing-12;
+}
+
+.cta {
+  @include grid(2fr 1fr, auto);
+  background-color: $primary-color;
+  @include box-shadow($shadow-lg);
+  border-radius: $border-radius-md;
+  background-image: linear-gradient(to right bottom, #eb984e, $primary-color);
+  overflow: hidden;
+
+  @include respond(lg) {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  @include respond(sm) {
+    grid-template-columns: 1fr;
+  }
+
+  &-text-box {
+    padding: $spacing-8 $spacing-9;
+    color: $primary-color-shade-2;
+    margin-bottom: $spacing-8;
+
+    @include respond(sm) {
+      padding: $spacing-7;
+    }
+  }
+
+  .heading-secondary {
+    color: inherit;
+    margin-bottom: $spacing-7;
+  }
+
+  &-text {
+    font-size: map.get($font-sizes, "lg");
+    line-height: $line-height-xl;
+    margin-bottom: $spacing-8;
+  }
+
+  &-img-box {
+    background-image: linear-gradient(
+      to right bottom,
+      rgba(235, 151, 78, 0.35),
+      rgba($primary-color, 0.35)
+    ),
+    url(../img/eating.jpg);
+    background-size: cover;
+    background-position: center;
+
+    @include respond(sm) {
+      height: 32rem;
+      grid-row: 1;
+    }
+  }
+
+  &-form {
+    @include grid(1fr 1fr, auto, $spacing-6 $spacing-7);
+
+    @include respond(lg) {
+      grid-template-columns: 1fr;
+    }
+
+    label {
+      display: block;
+      font-size: map.get($font-sizes, "base");
+      font-weight: $font-weight-medium;
+      margin-bottom: $spacing-4;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: $spacing-4;
+      font-size: map.get($font-sizes, "lg");
+      font-family: inherit;
+      color: inherit;
+      border: none;
+      background-color: $primary-color-tint-1;
+      border-radius: $border-radius-sm;
+      @include box-shadow($shadow-sm);
+    }
+
+    input::placeholder {
+      color: #aaa;
+    }
+  }
+
+  *:focus {
+    box-shadow: 0 0 0 0.8rem rgba($primary-color-tint-1, 0.5);
+  }
+}
+
+// FOOTER
+.footer {
+  padding: $spacing-12 0;
+  border-top: 1px solid #eee;
+}
+
+.grid--footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+
+  @include respond(md) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.logo-col {
+  @include flex(column, flex-start, flex-start);
+
+  @include respond(md) {
+    grid-column: span 3;
+  }
+}
+
+.footer-logo {
+  display: block;
+  margin-bottom: $spacing-7;
+}
+
+.social-links {
+  list-style: none;
+  @include flex(row, flex-start, center, $spacing-6);
+}
+
+.social-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.copyright {
+  font-size: map.get($font-sizes, "md");
+  line-height: $line-height-lg;
+  color: $grey-2;
+  margin-top: auto;
+}
+
+.footer-heading {
+  font-size: map.get($font-sizes, "lg");
+  font-weight: $font-weight-medium;
+  margin-bottom: $spacing-8;
+}
+
+.contacts {
+  font-style: normal;
+  font-size: map.get($font-sizes, "base");
+  line-height: $line-height-lg;
+}
+
+.address {
+  margin-bottom: $spacing-6;
+}
+
+.address-col {
+  @include respond(md) {
+    grid-column: span 3;
+  }
+}
+
+.nav-col {
+  @include respond(md) {
+    grid-row: 1;
+    grid-column: span 2;
+  }
+}
+
+.footer-nav {
+  list-style: none;
+  @include flex(column, flex-start, flex-start, $spacing-6);
+}
+
+.footer-link {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    font-size: map.get($font-sizes, "base");
+    color: $grey-2;
+    @include transition;
+  }
+
+  &:hover,
+  &:active {
+    color: $grey-4;
+  }
+}

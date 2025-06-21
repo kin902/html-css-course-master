@@ -1,0 +1,51 @@
+// SAFARI FLEXBOX GAP FIX
+
+@use "variables" as *;
+@use "mixins" as *;
+
+.no-flexbox-gap {
+  .main-nav-list li:not(:last-child) {
+    margin-right: $spacing-8;
+    
+    @include respond(xl) {
+      margin-right: $spacing-7;
+    }
+    
+    @include respond(lg) {
+      margin-right: 0;
+      margin-bottom: $spacing-8;
+    }
+  }
+  
+  .list-item:not(:last-child) {
+    margin-bottom: $spacing-5;
+  }
+  
+  .list-icon:not(:last-child) {
+    margin-right: $spacing-5;
+  }
+  
+  .delivered-faces {
+    margin-right: $spacing-5;
+  }
+  
+  .meal-attribute:not(:last-child) {
+    margin-bottom: $spacing-6;
+  }
+  
+  .meal-icon {
+    margin-right: $spacing-5;
+  }
+  
+  .footer-row div:not(:last-child) {
+    margin-right: $spacing-9;
+  }
+  
+  .social-links li:not(:last-child) {
+    margin-right: $spacing-6;
+  }
+  
+  .footer-nav li:not(:last-child) {
+    margin-bottom: $spacing-6;
+  }
+}

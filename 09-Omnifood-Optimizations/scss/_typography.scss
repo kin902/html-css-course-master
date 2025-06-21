@@ -1,0 +1,57 @@
+// TYPOGRAPHY
+
+@use "variables" as *;
+@use "mixins" as *;
+@use "sass:map" as map;
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: $font-weight-bold;
+  color: $grey-5;
+  letter-spacing: $letter-spacing-tight;
+}
+
+.heading-primary {
+  font-size: map.get($font-sizes, "6xl");
+  line-height: $line-height-sm;
+  margin-bottom: $spacing-7;
+
+  @include respond(2xl) {
+    font-size: map.get($font-sizes, "5xl");
+  }
+}
+
+.heading-secondary {
+  font-size: map.get($font-sizes, "5xl");
+  line-height: $line-height-md;
+  margin-bottom: $spacing-11;
+
+  @include respond(xl) {
+    font-size: map.get($font-sizes, "4xl");
+  }
+
+  @include respond(md) {
+    margin-bottom: $spacing-8;
+  }
+}
+
+.heading-tertiary {
+  font-size: map.get($font-sizes, "3xl");
+  line-height: $line-height-md;
+  margin-bottom: $spacing-7;
+
+  @include respond(xl) {
+    font-size: map.get($font-sizes, "2xl");
+  }
+}
+
+.subheading {
+  display: block;
+  font-size: map.get($font-sizes, "base");
+  font-weight: $font-weight-semibold;
+  color: $primary-color-shade-1;
+  text-transform: uppercase;
+  margin-bottom: $spacing-5;
+  letter-spacing: $letter-spacing-wide;
+}

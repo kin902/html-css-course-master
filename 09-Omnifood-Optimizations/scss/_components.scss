@@ -1,0 +1,170 @@
+// COMPONENTS
+
+@use "variables" as *;
+@use "mixins" as *;
+@use "sass:map" as map;
+
+// CONTAINER
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 $spacing-7;
+}
+
+// GRID
+.grid {
+  display: grid;
+  row-gap: $spacing-11;
+  column-gap: $spacing-9;
+
+  &:not(:last-child) {
+    margin-bottom: $spacing-11;
+  }
+
+  @include respond(xl) {
+    column-gap: $spacing-8;
+    row-gap: $spacing-9;
+  }
+
+  @include respond(sm) {
+    row-gap: $spacing-8;
+  }
+
+  // GRID VARIATIONS
+  &--2-cols {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include respond(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include respond(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--4-cols {
+    grid-template-columns: repeat(4, 1fr);
+
+    @include respond(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--5-cols {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  &--center-v {
+    align-items: center;
+  }
+}
+
+// BUTTONS
+%btn-shared {
+  display: inline-block;
+  text-decoration: none;
+  font-size: map.get($font-sizes, "xl");
+  padding: $spacing-5 $spacing-7;
+  border-radius: $border-radius-sm;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  @include transition;
+
+  @include respond(sm) {
+    padding: $spacing-6 $spacing-5;
+  }
+}
+
+.btn {
+  &, &:link, &:visited {
+    @extend %btn-shared;
+  }
+
+  &--full {
+    &:link, &:visited {
+      background-color: $primary-color;
+      color: #fff;
+    }
+
+    &:hover, &:active {
+      background-color: $primary-color-shade-1;
+    }
+  }
+
+  &--outline {
+    &:link, &:visited {
+      background-color: #fff;
+      color: $grey-4;
+    }
+
+    &:hover, &:active {
+      background-color: $primary-color-tint-1;
+      box-shadow: inset 0 0 0 3px #fff;
+    }
+  }
+
+  &--form {
+    background-color: $primary-color-shade-2;
+    color: $primary-color-tint-1;
+    align-self: end;
+    padding: $spacing-4;
+
+    &:hover {
+      background-color: $primary-color-tint-1;
+      color: $grey-4;
+    }
+
+    @include respond(lg) {
+      margin-top: $spacing-4;
+    }
+  }
+}
+
+// LINKS
+.link {
+  &:link, &:visited {
+    display: inline-block;
+    color: $primary-color;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    @include transition;
+  }
+
+  &:hover, &:active {
+    color: $primary-color-shade-1;
+    border-bottom-color: transparent;
+  }
+}
+
+// LISTS
+.list {
+  list-style: none;
+  @include flex(column, flex-start, flex-start, $spacing-5);
+
+  &-item {
+    font-size: map.get($font-sizes, "lg");
+    @include flex(row, flex-start, center, $spacing-5);
+    line-height: $line-height-md;
+  }
+
+  &-icon {
+    width: 3rem;
+    height: 3rem;
+    color: $primary-color;
+  }
+}

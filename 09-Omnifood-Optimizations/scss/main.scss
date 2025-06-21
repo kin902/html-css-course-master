@@ -1,0 +1,23 @@
+/*
+  Omnifood SCSS Main File
+  Author: Vinh
+  
+  This file imports all the partials in the correct order.
+*/
+
+// Import variables and mixins first
+@use "variables";
+@use "mixins";
+
+// Import base styles
+@use "base";
+@use "typography";
+@use "components";
+
+// Import layout and section styles
+@use "header";
+@use "hero";
+@use "sections";
+
+// Import queries last
+@use "queries";
